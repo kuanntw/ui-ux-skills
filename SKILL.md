@@ -15,16 +15,16 @@ Use the detailed rules in `README.md` whenever you design, review, or implement 
    - secondary information
    - supporting information
 3. Ensure the visual design makes the primary information easiest to scan and does not let secondary or supporting information compete with it.
-4. Check responsive behavior for mobile, tablet, desktop, and large desktop.
+4. Check responsive behavior for mobile, tablet, desktop, and large desktop. Test 200% text resizing separately from 320 CSS px wide reflow (256 CSS px high for horizontally scrolling content), using the conditions and exceptions in README section 4.2.
 5. Choose color systems by application domain as a recommendation only; final primary color must be confirmed by the user/brand owner.
 6. Validate color roles and contrast:
    - normal text: at least 4.5:1
-   - large text: at least 3:1
+   - large text: at least 3:1 only when the size/weight qualifies under README section 5.2
    - meaningful non-text UI elements: at least 3:1
    - never use color as the only indicator
-7. Review all labels, placeholders, helper text, captions, notes, and errors for meaningful guidance.
-8. Apply the repeatable scenarios in [README.md, section 11](README.md#11-可重複審查與驗收): keyboard/focus, reduced motion, async recovery, long content, and internationalization. Preserve the existing Chinese microcopy, brand decisions, and responsive rules.
-9. Report scope, evidence, severity, exact file/line or screen location, and verified versus untested coverage using that section's review format. A static review or screenshot is not a runtime accessibility pass.
+7. Review all labels, placeholders, helper text, captions, notes, and errors for meaningful guidance. Verify product facts before asserting privacy, permissions, password policy, time zones, limits or irreversible consequences; mark unknowns pending confirmation rather than inventing policy (README section 1.1).
+8. Apply the repeatable scenarios in [README.md, section 11](README.md#11-可重複審查與驗收): keyboard/focus, reduced motion, async recovery, long content, and internationalization. Preserve Traditional Chinese, intended meaning, brand decisions, and responsive principles. Improve target-interface wording or translation when the user requests it; do not freeze existing strings or change business rules without authorization.
+9. Report scope, evidence, severity, exact file/line or screen location, and verified versus untested coverage using that section's review format. Separate method (static/manual/automated) from outcome (passed/failed/untested/blocked/not applicable), with evidence or reasons and next steps. A static review or screenshot is not a runtime accessibility pass.
 
 ## Color selection rules
 
@@ -43,9 +43,12 @@ Use the detailed rules in `README.md` whenever you design, review, or implement 
 
 ## Examples
 
-- Password helper text: `密碼需至少 12 碼，並包含英文、數字與符號。`
-- Private note helper text: `此備註僅自己可見，不會顯示給客戶。`
-- Public note helper text: `此備註會顯示給所有協作者，請勿填寫敏感資料。`
+These are conditional examples, not product defaults. Use only after verifying the stated policy:
+
+- If the minimum length is confirmed as 15 characters: `密碼至少需 15 個字元，可使用較長的密碼短語。` Do not impose a fixed length or mixed-character rule through this skill.
+- If access rules confirm private notes: `此備註僅自己可見，不會顯示給客戶。`
+- If access rules confirm visibility to all collaborators: `此備註會顯示給所有協作者，請勿填寫敏感資料。`
+- If visibility is unknown, record `待確認：誰可以查看此備註？` for the product owner; do not publish an invented privacy promise.
 
 See `README.md` for the full checklist and source references.
 
@@ -55,3 +58,6 @@ See `README.md` for the full checklist and source references.
 - When interaction, assistive technology, or rendered output cannot be tested, mark the case untested and state the smallest manual verification step. Do not silently broaden permissions to complete a checklist.
 - Keep design recommendations separate from confirmed defects and standards violations. Do not replace brand-owner decisions with external guideline preferences.
 - This is a scoped review, not a WCAG conformance certification. Manual keyboard and assistive-technology testing remains necessary where applicable.
+
+
+For maintainers: [README section 12](README.md#12-skill-本身的回歸檢查) describes offline package checks and behavioral evaluation cases. Passing those static checks does not establish model or UI behavior.
