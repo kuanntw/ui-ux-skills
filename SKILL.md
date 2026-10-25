@@ -23,6 +23,8 @@ Use the detailed rules in `README.md` whenever you design, review, or implement 
    - meaningful non-text UI elements: at least 3:1
    - never use color as the only indicator
 7. Review all labels, placeholders, helper text, captions, notes, and errors for meaningful guidance.
+8. Apply the repeatable scenarios in [README.md, section 11](README.md#11-可重複審查與驗收): keyboard/focus, reduced motion, async recovery, long content, and internationalization. Preserve the existing Chinese microcopy, brand decisions, and responsive rules.
+9. Report scope, evidence, severity, exact file/line or screen location, and verified versus untested coverage using that section's review format. A static review or screenshot is not a runtime accessibility pass.
 
 ## Color selection rules
 
@@ -46,3 +48,10 @@ Use the detailed rules in `README.md` whenever you design, review, or implement 
 - Public note helper text: `此備註會顯示給所有協作者，請勿填寫敏感資料。`
 
 See `README.md` for the full checklist and source references.
+
+## Review and capability boundaries
+
+- Use only tools already available and authorized for the task. This skill grants no browser, network, command execution, installation, or additional write permissions.
+- When interaction, assistive technology, or rendered output cannot be tested, mark the case untested and state the smallest manual verification step. Do not silently broaden permissions to complete a checklist.
+- Keep design recommendations separate from confirmed defects and standards violations. Do not replace brand-owner decisions with external guideline preferences.
+- This is a scoped review, not a WCAG conformance certification. Manual keyboard and assistive-technology testing remains necessary where applicable.
